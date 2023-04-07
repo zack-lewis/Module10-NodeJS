@@ -1,0 +1,40 @@
+<%- include('partials/default_heading.ejs') %>
+<%- include('partials/default_nav.ejs') %>
+<main>
+
+<h1>
+<pre id="banner">
+#       #######  #####  ### #     # 
+#       #     # #     #  #  ##    # 
+#       #     # #        #  # #   # 
+#       #     # #  ####  #  #  #  # 
+#       #     # #     #  #  #   # # 
+#       #     # #     #  #  #    ## 
+####### #######  #####  ### #     # 
+
+</pre>
+</h1>
+<% if (messages.error) { %>
+    <div id="errorMsg">
+        <%= messages.error %>
+    </div>  
+<% } %>
+
+<div id="form">
+    <form action="/login" method="POST">
+        <label for="email">Email</label>
+            <input type="email" name="email" id="email" required>
+        <br /><br />
+        <label for="password">Password</label>
+            <input type="password" name="password" id="password" required>
+        <br /><br />
+        <button type="submit" id="login">LOGIN</button>
+        <br /><br />
+    </form>
+    <a href="/register">Register</a>
+</div>
+
+
+
+</main>
+<%- include('partials/default_footing.ejs') %>

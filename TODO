@@ -1,0 +1,11 @@
+Load NAV menu from simple text file with tree-like syntax
+menus slide down and back up. 
+set min width for desktop
+set up mobile for when screensize is below min
+add typing effect for homepage
+add database schema update logic for multiple updates
+
+build API to decouple logic from actions
+look up JWT tokens for API?
+
+add github strategy for auth

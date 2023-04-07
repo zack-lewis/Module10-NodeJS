@@ -1,0 +1,9 @@
+table#game td {
+    border-collapse: collapse;
+    border: 2px dotted white;
+}
+
+button.square {
+    height: 10vh;
+    width: 20vw; 
+}

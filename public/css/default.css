@@ -1,0 +1,138 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    width: 85%;
+    margin: auto;
+    background-color: black;
+    font-family:"Source Code Pro", monospace;
+    color: #00FF40;
+    height: 100%;
+    overflow: hidden;
+}
+
+header {
+    height: 120px;
+    font-style: italic;
+    font-variant: small-caps;
+    display: flex;
+    flex-direction: row;
+    background-color: black;
+    position: relative;
+}
+
+img#site-logo {
+    height: 120px;
+    position: relative;
+    left: 10vw;
+}
+
+h1#site-heading { 
+    font-size: 120px;   
+    position: relative;
+    left: 20vw;
+}
+
+footer {
+    height: 85px;
+}
+
+main {
+    margin-top: 15px;
+    border: 1px solid #00FF40;
+    height: 70vh;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    padding: 10px;
+}
+
+div#copyright {
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    display: flex;
+}
+
+div#copyright > small {
+    position: absolute;
+    bottom: 25px;
+}
+
+button#logoutBTN {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    width: 100px;
+    height: 30px;
+}
+
+/**********   NAV BAR BELOW ******/
+/**** PITA. JUST SAYING. ***/
+
+/****** BASE SETUP ******/
+nav {   /*Entire nav section*/
+    margin-left: 100px;
+    margin-top: 20px;
+    text-align: center;
+    position: relative;
+}
+
+li.nav { /*All of the li elements, base config*/
+    display: block;
+    position: relative;
+    float: left;
+    background-color: #303030;
+    width: 200px;
+    list-style: none;
+    border-radius: 15px;
+    border-style: groove;
+    border-width: 2px;
+    border-color: #00FF40;
+    margin-right: 10px;
+}
+
+li.nav a { /*Any links in the nav section*/
+    color: #00FF40;
+    text-decoration: none;
+    display: block;
+    padding: 10px;
+}
+
+ul.bar {   /*ALWAYS VISIBLE ON THE NAV BAR*/
+    width: 100%;
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+}
+
+li.nav ul {   /*Hide the sub list*/
+    display: none;
+}
+
+li.menu {
+    left: 10px;
+    width: 180px;
+}
+
+/****** HOVER SETUP ******/
+
+li.bar:hover > ul {     /*On hover, display the hidden ul with abs position so that it doesnt move the rest of the page around*/
+    display: block;
+    position: absolute;
+}
+
+li.bar:hover li {   
+    float: none;
+}
+
+li:hover {
+    background-color: #202020;
+}
+
+
+
+ul::after {
+    clear:both;
+}
