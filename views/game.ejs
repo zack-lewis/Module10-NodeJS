@@ -1,6 +1,5 @@
 <%- include('partials/default_heading.ejs') %>
 <%- include('partials/default_nav.ejs') %>
-<!-- <link href="css/project.css" rel="stylesheet"> -->
 <main>
 
 <h1>
@@ -15,34 +14,27 @@
                                                                                  
 </pre>
 </h1>
-
+<script src="js/game.js" ></script>
 <div id="gameboard">
 <table id="game">
    <tr class="top">
-      <td class="left"><button class="square">-</button></td>
-      <td class="middle"><button class="square">-</button></td>
-      <td class="right"><button class="square">-</button></td>
+      <td class="gameBtn" id="left"><button class="square">-</button></td>
+      <td class="gameBtn" id="middle"><button class="square">-</button></td>
+      <td class="gameBtn" id="right"><button class="square">-</button></td>
    </tr>
    <tr class="middle">
-      <td class="left"><button class="square">-</button></td>
-      <td class="middle"><button class="square">-</button></td>
-      <td class="right"><button class="square">-</button></td>
+      <td class="gameBtn" id="left"><button class="square">-</button></td>
+      <td class="gameBtn" id="middle"><button class="square">-</button></td>
+      <td class="gameBtn" id="right"><button class="square">-</button></td>
    </tr>
    <tr class="bottom">
-      <td class="left"><button class="square">-</button></td>
-      <td class="middle"><button class="square">-</button></td>
-      <td class="right"><button class="square">-</button></td>
+      <td class="gameBtn" id="left"><button class="square">-</button></td>
+      <td class="gameBtn" id="middle"><button class="square">-</button></td>
+      <td class="gameBtn" id="right"><button class="square">-</button></td>
    </tr>
 </table>
 
 </div>
-<% if (user) {
-       console.log("User: " + user)
-   }
-   else {
-       console.log("No")
-   }
-%>
 
 
 </main>

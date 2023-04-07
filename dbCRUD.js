@@ -9,7 +9,7 @@ async function createUser(name, email, password, _array) {
         email: email,
         password: password
     })
-    // console.log('Create User array: ' + _array)
+    
     switch (dbType) {
         case 'array':
             return _array;
@@ -20,7 +20,7 @@ async function createUser(name, email, password, _array) {
                 const sql = `Insert into USERS (name,email,pass) VALUES (?, ?, ?)`
                 db.run(sql, [name, email, password], (err) => {
                     if (err != null) {
-                        console.log('Run failed? ' + err);
+                        console.log('CreateUser: ' + err);
                     }
                     else {
                         success = true;
@@ -58,11 +58,10 @@ async function readUsers() {
     }
     try {
         const users = await dbPromise()
-        console.log(users)
         return users
     } 
-    catch (e) {
-        console.log(e)
+    catch (err) {
+        console.log("ReadUsers: " + err)
         return false
     }
 }
@@ -87,11 +86,10 @@ async function searchUsersById(id) {
         }
     
         const user = await dbPromise()
-        console.log(user)
         return user
     } 
-    catch (e) {
-        console.log(e)
+    catch (err) {
+        console.log("SearchByID: " + err)
         return false
     }
 }

@@ -30,13 +30,13 @@ function initialize(passport, getUserByEmail, getUserById) {
     ))
 
     passport.serializeUser((user,done) => {
-        console.log('serialize User: ' + user)
+        // console.log('serialize User: ' + user)
         return done(null, user)
     })
     
     passport.deserializeUser((user,done) => {
-        console.log('deserialize User: ' + user)
-        return done(null, getUserById(user.id))
+        // console.log('deserialize User: ' + user.uid)
+        return done(null, getUserById(user.uid))
     })
 }
 

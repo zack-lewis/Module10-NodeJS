@@ -1,4 +1,10 @@
 <nav>
+    <% if (typeof(user) !== 'undefined') { %>
+        <!-- <h3>Welcome, <%= user.name %></h3> -->
+        <form action="/logout?_method=DELETE" method="POST">
+            <button type="submit" id="logoutBTN">Logout</button>
+        </form>
+    <% } %>
     <div id="nav-menu">
         <ul class="bar nav">
             <li class="bar nav">
@@ -9,6 +15,5 @@
                 </ul>
             </li>
         </ul>
-    </div>
-    
+    </div>    
 </nav>

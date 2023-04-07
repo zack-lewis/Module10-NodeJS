@@ -93,8 +93,7 @@ app.use('/img', express.static(__dirname + 'public/img'))
 // AUTH REQUIRED
 // ------------ 
 app.get('/', authTrue, (req, res) => {
-    res.render('index.ejs', { name: req.user })
-    console.log('index: ' + req)
+    res.render('index.ejs', { user: req.user })
 });
 // app.post('/', authTrue, (req, res) => res.redirect('/login'));
 
@@ -107,11 +106,11 @@ app.post('/test', (req, res) => res.send(req.body))
 // ------------
 app.get('/login', authFalse, (req, res) => res.render('login.ejs'))
 app.post('/login', authFalse, passport.authenticate('local', {
-    successRedirect: req.session.returnTo || '/',
-    failureRedirect: '/login',
-    failureFlash: true,
-    failureMessage: true
-}))
+        successRedirect: '/',
+        failureRedirect: '/login',
+        failureFlash: true,
+        failureMessage: true})
+)
 
 // ------------
 // REGISTER
@@ -145,8 +144,8 @@ app.post('/register', authFalse, async (req,res) => {
             return res.redirect('/login')
         }
     }
-    catch(e) {
-        console.log(e)
+    catch(err) {
+        console.log("Register Post: " + e)
     }
     req.flash('error', 'Registration Failed')
     return res.redirect('/register')
@@ -174,7 +173,6 @@ function authTrue(req, res, next) { // Next on Auth: True
     if(req.isAuthenticated()) {
         return next()
     }
-    req.session.returnTo = req.originalUrl;
     return res.redirect('/login')
 }
 
@@ -189,9 +187,6 @@ function userLogout(req, res, next) {
     try {
         req.logOut((err) => err ? console.log('User logout') : console.log(err));
         res.clearCookie('connect.sid', { path: '/' });
-        console.log(req.session)
-        // req.session.
-        // session.
     }
     catch(err) {
         console.log(err)
