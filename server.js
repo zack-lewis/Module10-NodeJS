@@ -178,9 +178,12 @@ app.post('/game', authTrue, (req, res) => {
 // ------------
 
 function authTrue(req, res, next) { // Next on Auth: True
+    console.log("AuthTrue")
+    console.dir(req)
     if(req.isAuthenticated()) {
         return next()
     }
+    console.log("Login")
     return res.redirect('/login')
 }
 

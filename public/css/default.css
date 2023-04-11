@@ -40,12 +40,12 @@ footer {
 }
 
 main {
-    margin-top: 15px;
+    margin-top: 10px;
     border: 1px solid #00FF40;
     height: 70vh;
     overflow-x: hidden;
     overflow-y: scroll;
-    padding: 10px;
+    padding: 5px;
 }
 
 div#copyright {
@@ -74,7 +74,7 @@ button#logoutBTN {
 /****** BASE SETUP ******/
 nav {   /*Entire nav section*/
     margin-left: 100px;
-    margin-top: 20px;
+    margin-top: 10px;
     text-align: center;
     position: relative;
 }

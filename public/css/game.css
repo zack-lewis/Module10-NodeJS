@@ -1,8 +1,9 @@
 div#gameboard {
-    width: 100%;
+    /* width: 100%; */
     display: block;
     margin: auto;
 }
+
 div#gameboard > table {
     border-collapse: collapse;
 }
@@ -15,27 +16,31 @@ button.tile {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 10vw;
-    width: 10vw; 
+    height: 8vw;
+    width: 8vw; 
     margin: auto;
     text-align: center;
     line-height: 1em;
 }
 
 button#reset {
-    /* display: flex; */
     height: 10vh;
     width: 20vw; 
-    /* margin: auto; */
-    float: right;
-    position:absolute;
+    /* float: right;
+    position:relative;
     top: 10px;
-    right: 10px;
+    right: 10px; */
 }
 
 #statusBox {
     margin: auto;
     text-align: center;
+    display: inline-block;
+}
+
+#resetButtonBox {
+    display: block;
+    margin: auto;
 }
 
 #statusBox > h2 {
@@ -60,4 +65,14 @@ button#reset {
 .bottomBorder {
     border-bottom-width: 10px;
     
+}
+
+.column {
+    display: grid;
+    grid-template-columns: 30% 40% 30%;
+}
+
+.columnParent {
+    display: flex;
+    clear: both;
 }

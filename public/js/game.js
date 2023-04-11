@@ -6,6 +6,8 @@ const oColor = "blue";
 const originColor = "yellow";
 
 $("document").ready(function() {
+    $("pre#banner").animate({"font-size":"130%"},2000)
+    $("pre#banner").animate({"font-size":"30%"},1000)
     resetGame();
 });
 
