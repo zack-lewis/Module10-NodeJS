@@ -1,51 +1,66 @@
 <%- include('partials/default_heading.ejs') %>
 <%- include('partials/default_nav.ejs') %>
 <main>
+   <div id="overlay" onclick="hideOverlay()">
+      <pre>
+      ####### ###  #####        #######    #     #####        ####### ####### ####### 
+         #     #  #     #          #      # #   #     #          #    #     # #       
+         #     #  #                #     #   #  #                #    #     # #       
+         #     #  #       #####    #    #     # #       #####    #    #     # #####   
+         #     #  #                #    ####### #                #    #     # #       
+         #     #  #     #          #    #     # #     #          #    #     # #       
+         #    ###  #####           #    #     #  #####           #    ####### ####### 
+                                                                                       
+      </pre>
 
-   <h1>
-   <pre id="banner">
-   ####### ###  #####        #######    #     #####        ####### ####### ####### 
-      #     #  #     #          #      # #   #     #          #    #     # #       
-      #     #  #                #     #   #  #                #    #     # #       
-      #     #  #       #####    #    #     # #       #####    #    #     # #####   
-      #     #  #                #    ####### #                #    #     # #       
-      #     #  #     #          #    #     # #     #          #    #     # #       
-      #    ###  #####           #    #     #  #####           #    ####### ####### 
-                                                                                    
-   </pre>
-   </h1>
-   <script src="js/game.js" ></script>
-   
-   <div class="columnParent">
-      <div id="statusBox" class="column">
-         <h2>Current Turn</h2>
-         <h1>X</h1>
-         
-      </div>
-      <div id="gameboard" class="column">
-         <table id="game">
-            <tr class="top gameRow">
-               <td class="gameBtn rightBorder bottomBorder"><button class="tile" id="1" onclick="btnClick(this)" data-claimed="false">-</button></td> 
-               <td class="gameBtn rightBorder bottomBorder"><button class="tile" id="2" onclick="btnClick(this)" data-claimed="false">-</button></td>
-               <td class="gameBtn bottomBorder"><button class="tile" id="3" onclick="btnClick(this)" data-claimed="false">-</button></td>
-            </tr>
-            <tr class="middle gameRow">
-               <td class="gameBtn rightBorder bottomBorder"><button class="tile" id="4" onclick="btnClick(this)" data-claimed="false">-</button></td>
-               <td class="gameBtn rightBorder bottomBorder"><button class="tile" id="5" onclick="btnClick(this)" data-claimed="false">-</button></td>
-               <td class="gameBtn bottomBorder"><button class="tile" id="6" onclick="btnClick(this)" data-claimed="false">-</button></td>
-            </tr>
-            <tr class="bottom gameRow">
-               <td class="gameBtn rightBorder"><button class="tile" id="7" onclick="btnClick(this)" data-claimed="false">-</button></td>
-               <td class="gameBtn rightBorder"><button class="tile" id="8" onclick="btnClick(this)" data-claimed="false">-</button></td>
-               <td class="gameBtn"><button class="tile" id="9" onclick="btnClick(this)" data-claimed="false">-</button></td>
-            </tr>
-         </table>
-      </div>
-      <div id="resetButtonBox" class="column">
-         <button type="button" id="reset" onclick="resetGame()">RESET</button>
-      </div>
+      <h1>
+         Click anywhere to play
+      </h1>
    </div>
+   <span>
+      <h1>
+      <pre id="banner">
+      ####### ###  #####        #######    #     #####        ####### ####### ####### 
+         #     #  #     #          #      # #   #     #          #    #     # #       
+         #     #  #                #     #   #  #                #    #     # #       
+         #     #  #       #####    #    #     # #       #####    #    #     # #####   
+         #     #  #                #    ####### #                #    #     # #       
+         #     #  #     #          #    #     # #     #          #    #     # #       
+         #    ###  #####           #    #     #  #####           #    ####### ####### 
+                                                                                       
+      </pre>
+      </h1>
+      <script src="js/game.js" ></script>
+      
+      <div class="columnParent">
+         <div id="statusBox" class="column">
+            <h2>Current Turn</h2>
+            <h1>X</h1>
+         </div>
+         <div id="gameboard" class="column">
+            <table id="game">
+               <tr class="top gameRow">
+                  <td class="gameBtn rightBorder bottomBorder"><button class="tile" id="1" onclick="btnClick(this)" data-claimed="false">-</button></td> 
+                  <td class="gameBtn rightBorder bottomBorder"><button class="tile" id="2" onclick="btnClick(this)" data-claimed="false">-</button></td>
+                  <td class="gameBtn bottomBorder"><button class="tile" id="3" onclick="btnClick(this)" data-claimed="false">-</button></td>
+               </tr>
+               <tr class="middle gameRow">
+                  <td class="gameBtn rightBorder bottomBorder"><button class="tile" id="4" onclick="btnClick(this)" data-claimed="false">-</button></td>
+                  <td class="gameBtn rightBorder bottomBorder"><button class="tile" id="5" onclick="btnClick(this)" data-claimed="false">-</button></td>
+                  <td class="gameBtn bottomBorder"><button class="tile" id="6" onclick="btnClick(this)" data-claimed="false">-</button></td>
+               </tr>
+               <tr class="bottom gameRow">
+                  <td class="gameBtn rightBorder"><button class="tile" id="7" onclick="btnClick(this)" data-claimed="false">-</button></td>
+                  <td class="gameBtn rightBorder"><button class="tile" id="8" onclick="btnClick(this)" data-claimed="false">-</button></td>
+                  <td class="gameBtn"><button class="tile" id="9" onclick="btnClick(this)" data-claimed="false">-</button></td>
+               </tr>
+            </table>
+         </div>
+         <div id="resetButtonBox" class="column">
+            <button type="button" id="reset" onclick="resetGame()">RESET</button>
+         </div>
+      </div>
+   </span>
    
-   
-   </main>
+</main>
 <%- include('partials/default_footing.ejs') %>

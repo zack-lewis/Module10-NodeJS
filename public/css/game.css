@@ -1,5 +1,4 @@
 div#gameboard {
-    /* width: 100%; */
     display: block;
     margin: auto;
 }
@@ -26,10 +25,14 @@ button.tile {
 button#reset {
     height: 10vh;
     width: 20vw; 
-    /* float: right;
-    position:relative;
-    top: 10px;
-    right: 10px; */
+    border-radius: 12px;
+    background-color: #00F400; /* Green */
+    border: none;
+    padding: 0px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 48px;
+    cursor: pointer;
 }
 
 #statusBox {
@@ -75,4 +78,38 @@ button#reset {
 .columnParent {
     display: flex;
     clear: both;
+}
+
+#banner {
+    font-size: 30%;
+}
+
+div#overlay {
+    padding: 0px;
+    width: 84%;
+    height: 70vh;
+    position: fixed;
+    background-color: black;
+    color: #00F400;
+    text-align: center;
+}
+
+#overlay > pre {
+    position: relative;
+    top: 100px;
+    letter-spacing: 2px;
+    animation: spaceout 6s infinite
+}
+
+#overlay > h1 {
+    position: relative;
+    top: 300px;
+}
+
+@keyframes spaceout {
+    50% {letter-spacing: 6px;}
+}
+
+main > span {
+    padding: 5px;
 }

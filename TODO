@@ -9,3 +9,6 @@ build API to decouple logic from actions
 look up JWT tokens for API?
 
 add github strategy for auth
+
+
+Optimize the crap out of game.js

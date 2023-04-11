@@ -168,7 +168,7 @@ app.delete('/logout', userLogout)
 // GAME
 // ------------
 
-app.get('/game', authTrue, (req, res) => res.render('game.ejs', { user: req.user }));
+app.get('/game', (req, res) => res.render('game.ejs', { user: req.user }));
 app.post('/game', authTrue, (req, res) => {
     res.sendStatus(500);
 });
@@ -178,12 +178,12 @@ app.post('/game', authTrue, (req, res) => {
 // ------------
 
 function authTrue(req, res, next) { // Next on Auth: True
-    console.log("AuthTrue")
-    console.dir(req)
+    // console.log("AuthTrue")
+    // console.dir(req)
     if(req.isAuthenticated()) {
         return next()
     }
-    console.log("Login")
+    // console.log("Login")
     return res.redirect('/login')
 }
 

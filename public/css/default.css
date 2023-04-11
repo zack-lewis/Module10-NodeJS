@@ -45,7 +45,6 @@ main {
     height: 70vh;
     overflow-x: hidden;
     overflow-y: scroll;
-    padding: 5px;
 }
 
 div#copyright {
