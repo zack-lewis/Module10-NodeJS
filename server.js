@@ -22,6 +22,7 @@ const salt = process.env.SALT || '$2b$10$ZsnRSR5lEmcRSGtqOUcYi.'
 
 let users = '';
 const userArray = []
+let returnTo = ""
 
 // ------------
 // DB Setup
@@ -112,7 +113,10 @@ app.post('/test', (req, res) => res.send(req.body))
 // ------------
 // AUTHENTICATION
 // ------------
-app.get('/login', authFalse, (req, res) => res.render('login.ejs'))
+app.get('/login', authFalse, (req, res) => {
+    res.render('login.ejs');
+    returnTo = req.params['origin']
+})
 app.post('/login', authFalse, passport.authenticate('local', {
         successRedirect: '/',
         failureRedirect: '/login',
@@ -168,7 +172,7 @@ app.delete('/logout', userLogout)
 // GAME
 // ------------
 
-app.get('/game', (req, res) => res.render('game.ejs', { user: req.user }));
+app.get('/game', authTrue, (req, res) => res.render('game.ejs', { user: req.user }));
 app.post('/game', authTrue, (req, res) => {
     res.sendStatus(500);
 });
@@ -178,13 +182,10 @@ app.post('/game', authTrue, (req, res) => {
 // ------------
 
 function authTrue(req, res, next) { // Next on Auth: True
-    // console.log("AuthTrue")
-    // console.dir(req)
     if(req.isAuthenticated()) {
         return next()
     }
-    // console.log("Login")
-    return res.redirect('/login')
+    return res.redirect('/login?origin=' + req.url)
 }
 
 function authFalse(req, res, next) { // Next on Auth: False
@@ -205,8 +206,6 @@ function userLogout(req, res, next) {
 
     res.redirect('/login');
 }
-
-
 
 // ------------
 // START THE SERVER

@@ -38,4 +38,5 @@ main p {
     line-height: 1.5;
     white-space: pre-wrap;
     padding-bottom: 25px;
+    padding: 5px 5px 5px 25px;
 }
