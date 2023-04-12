@@ -48,11 +48,11 @@ else if(dbtype === 'mysql') {
     process.exit(1)
 }
 else {
-    console.err('Using in-memory Array, changes will not persist')
+    console.error('Using in-memory Array, changes will not persist')
     createPassport.initialize(
         passport,
-        email => users.find(user => user.email === email),
-        id => users.find(user => user.id === id)
+        email => userArray.find(user => user.email === email),
+        uid => userArray.find(user => user.uid === uid)
     )
 }
 
@@ -115,7 +115,7 @@ app.post('/test', (req, res) => res.send(req.body))
 // ------------
 app.get('/login', authFalse, (req, res) => {
     res.render('login.ejs');
-    returnTo = req.params['origin']
+    // returnTo = req.params['origin']
 })
 app.post('/login', authFalse, passport.authenticate('local', {
         successRedirect: '/',
@@ -132,10 +132,10 @@ app.post('/register', authFalse, async (req,res) => {
     try {    
         const passHash = await bcrypt.hash(req.body.password,salt)
         const userDict = {
-            id: Date.now().toString(),
+            uid: Date.now().toString(),
             name: req.body.name,
             email: req.body.email,
-            password: passHash
+            pass: passHash
         }
 
         if(dbtype == 'sqlite3') {
@@ -157,7 +157,7 @@ app.post('/register', authFalse, async (req,res) => {
         }
     }
     catch(err) {
-        console.log("Register Post: " + e)
+        console.log("Register Post: " + err)
     }
     req.flash('error', 'Registration Failed')
     return res.redirect('/register')
@@ -185,7 +185,7 @@ function authTrue(req, res, next) { // Next on Auth: True
     if(req.isAuthenticated()) {
         return next()
     }
-    return res.redirect('/login?origin=' + req.url)
+    return res.redirect('/login') // origin=' + req.url)
 }
 
 function authFalse(req, res, next) { // Next on Auth: False

@@ -1,7 +1,7 @@
 <nav>
     <% if (typeof(user) !== 'undefined') { %>
-        <!-- <h3>Welcome, <%= user.name %></h3> -->
         <form action="/logout?_method=DELETE" method="POST">
+            <h1 id="username">Welcome, <%= user.name %></h1>
             <button type="submit" id="logoutBTN">Logout</button>
         </form>
     <% } %>

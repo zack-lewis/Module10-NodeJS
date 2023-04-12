@@ -9,7 +9,7 @@ function initialize(passport, getUserByEmail, getUserById) {
             if(user == null || !user) {
                 return done(null, false, { message: failMSG })
             }
-
+            
             const passMatch = await bcrypt.compare(password, user.pass)
             if(passMatch == true) {
                 return done(null, user)
@@ -30,12 +30,10 @@ function initialize(passport, getUserByEmail, getUserById) {
     ))
 
     passport.serializeUser((user,done) => {
-        // console.log('serialize User: ' + user)
         return done(null, user)
     })
     
     passport.deserializeUser((user,done) => {
-        // console.log('deserialize User: ' + user.uid)
         return done(null, getUserById(user.uid))
     })
 }
